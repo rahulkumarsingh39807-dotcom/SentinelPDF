@@ -2,66 +2,179 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}SentinelPDF{% endblock %}</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="description"
+          content="Professional PDF Malware Analysis Toolkit">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/loading.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/loading.css') }}">
 
     {% block css %}{% endblock %}
+
 </head>
 
 <body>
 
-<!-- Loading Screen -->
-<div id="loading-screen" class="loading-screen d-none">
+<!-- =========================
+     Loading Screen
+========================== -->
+
+<div id="loading-screen"
+     class="loading-screen d-none">
+
     <div class="text-center">
-        <div class="spinner-border text-success"></div>
-        <h4 class="mt-3">Analyzing PDF...</h4>
-        <p>Please wait...</p>
+
+        <div class="spinner-border text-success"
+             style="width:4rem;height:4rem;">
+        </div>
+
+        <h3 class="mt-4">
+            Analyzing PDF...
+        </h3>
+
+        <p class="text-light">
+            Please wait while SentinelPDF scans the document.
+        </p>
+
     </div>
+
 </div>
 
-<!-- Navbar -->
+<!-- =========================
+        NAVBAR
+========================== -->
+
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
 
     <div class="container-fluid">
 
-        <button class="btn btn-dark d-lg-none" id="menu-toggle">
+        <!-- Mobile Toggle -->
+
+        <button class="btn btn-dark d-lg-none"
+                id="menu-toggle">
+
             <i class="fas fa-bars"></i>
+
         </button>
 
-        <a class="navbar-brand fw-bold ms-2" href="/">
+        <!-- Logo -->
+
+        <a class="navbar-brand fw-bold ms-2"
+           href="/">
+
             <i class="fas fa-shield-virus text-success"></i>
+
             SentinelPDF
+
         </a>
 
-        <div class="ms-auto">
+        <!-- Right Menu -->
 
-            <button class="btn btn-outline-light rounded-circle">
+        <div class="d-flex align-items-center ms-auto">
 
-                <i class="fas fa-user"></i>
+            <button class="btn btn-dark me-2">
+
+                <i class="fas fa-bell"></i>
 
             </button>
+
+            <div class="dropdown">
+
+                <button class="btn btn-dark dropdown-toggle"
+
+                        data-bs-toggle="dropdown">
+
+                    <i class="fas fa-user-circle me-2"></i>
+
+                    Admin
+
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+
+                    <li>
+
+                        <a class="dropdown-item"
+
+                           href="#">
+
+                            <i class="fas fa-user me-2"></i>
+
+                            Profile
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a class="dropdown-item"
+
+                           href="#">
+
+                            <i class="fas fa-cog me-2"></i>
+
+                            Settings
+
+                        </a>
+
+                    </li>
+
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li>
+
+                        <a class="dropdown-item text-danger"
+
+                           href="#">
+
+                            <i class="fas fa-sign-out-alt me-2"></i>
+
+                            Logout
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
 
         </div>
 
     </div>
 
 </nav>
+
+<!-- =========================
+        MAIN LAYOUT
+========================== -->
 
 <div class="wrapper">
 
@@ -71,52 +184,88 @@
 
         <div class="logo">
 
-            <h4>MENU</h4>
+            <h3>
+
+                <i class="fas fa-shield-alt text-success"></i>
+
+                MENU
+
+            </h3>
 
         </div>
 
         <ul>
 
             <li>
+
                 <a href="/">
+
                     <i class="fas fa-chart-line"></i>
+
                     Dashboard
+
                 </a>
+
             </li>
 
             <li>
-                <a href="#">
-                    <i class="fas fa-file-upload"></i>
+
+                <a href="/upload">
+
+                    <i class="fas fa-upload"></i>
+
                     Upload PDF
+
                 </a>
+
             </li>
 
             <li>
-                <a href="#">
+
+                <a href="/reports">
+
                     <i class="fas fa-file-alt"></i>
+
                     Reports
+
                 </a>
+
             </li>
 
             <li>
-                <a href="#">
+
+                <a href="/history">
+
                     <i class="fas fa-history"></i>
+
                     History
+
                 </a>
+
             </li>
 
             <li>
-                <a href="#">
-                    <i class="fas fa-cog"></i>
+
+                <a href="/settings">
+
+                    <i class="fas fa-cogs"></i>
+
                     Settings
+
                 </a>
+
             </li>
 
             <li>
-                <a href="#">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
+
+                <a href="/about">
+
+                    <i class="fas fa-circle-info"></i>
+
+                    About
+
                 </a>
+
             </li>
 
         </ul>
@@ -127,6 +276,30 @@
 
     <main id="content">
 
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        <div class="container-fluid mt-3">
+
+            {% for message in messages %}
+
+            <div class="alert alert-success alert-dismissible fade show">
+
+                {{ message }}
+
+                <button class="btn-close"
+                        data-bs-dismiss="alert">
+                </button>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+        {% endwith %}
+
         {% block content %}
 
         {% endblock %}
@@ -135,17 +308,45 @@
 
 </div>
 
+<!-- =========================
+        FOOTER
+========================== -->
+
 <footer>
 
-    © 2026 SentinelPDF | PDF Malware Analysis Toolkit
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                © 2026 SentinelPDF
+
+            </div>
+
+            <div class="col-md-6 text-end">
+
+                PDF Malware Analysis Toolkit
+
+            </div>
+
+        </div>
+
+    </div>
 
 </footer>
 
+<!-- Bootstrap -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JS -->
 
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-{% block js %}{% endblock %}
+{% block js %}
+
+{% endblock %}
 
 </body>
 

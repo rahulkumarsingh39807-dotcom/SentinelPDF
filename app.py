@@ -1,12 +1,21 @@
-from flask import Flask, render_template
+from flask import Flask
+
 from config import Config
 
+from models import db
+
+from routes.dashboard import dashboard
+
 app = Flask(__name__)
+
 app.config.from_object(Config)
 
-@app.route("/")
-def home():
-    return render_template("dashboard/dashboard.html")
+db.init_app(app)
+
+app.register_blueprint(dashboard)
+
+with app.app_context():
+    db.create_all()
 
 if __name__ == "__main__":
     app.run(debug=True)

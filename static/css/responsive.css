@@ -1,0 +1,165 @@
+/* ==========================================
+   SentinelPDF Responsive CSS
+========================================== */
+
+/* ---------- Large Screens ---------- */
+@media (max-width:1200px){
+
+    #content{
+        padding:25px;
+    }
+
+    .card h2{
+        font-size:34px;
+    }
+
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width:992px){
+
+    .navbar{
+        padding:0 15px;
+    }
+
+    /* Sidebar */
+
+    #sidebar{
+
+        position:fixed;
+
+        top:70px;
+
+        left:-250px;
+
+        width:240px;
+
+        height:100vh;
+
+        z-index:1100;
+
+        transition:.35s;
+
+    }
+
+    #sidebar.active{
+
+        left:0;
+
+    }
+
+    #content{
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    .card{
+
+        margin-bottom:20px;
+
+    }
+
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:768px){
+
+    .navbar-brand{
+
+        font-size:22px;
+
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    h2{
+        font-size:26px;
+    }
+
+    h3{
+        font-size:22px;
+    }
+
+    .card{
+
+        padding:20px !important;
+
+    }
+
+    .card h2{
+
+        font-size:30px;
+
+    }
+
+    .card h5{
+
+        font-size:16px;
+
+    }
+
+    .table{
+
+        font-size:14px;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+        margin-bottom:10px;
+
+    }
+
+    footer{
+
+        text-align:center;
+
+        font-size:14px;
+
+    }
+
+}
+
+/* ---------- Small Mobile ---------- */
+@media (max-width:576px){
+
+    #content{
+
+        padding:15px;
+
+    }
+
+    .navbar-brand{
+
+        font-size:20px;
+
+    }
+
+    .logo h3{
+
+        font-size:22px;
+
+    }
+
+    .table{
+
+        display:block;
+
+        overflow-x:auto;
+
+    }
+
+    .form-control{
+
+        font-size:14px;
+
+    }
+
+}

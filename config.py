@@ -2,7 +2,7 @@ import os
 
 class Config:
 
-    SECRET_KEY = "SentinelPDF2026"
+    SECRET_KEY = "SentinelPDF@2026"
 
     SQLALCHEMY_DATABASE_URI = "sqlite:///sentinelpdf.db"
 
@@ -13,5 +13,3 @@ class Config:
     REPORT_FOLDER = "reports"
 
     MAX_CONTENT_LENGTH = 20 * 1024 * 1024
-
-    ALLOWED_EXTENSIONS = {"pdf"}
