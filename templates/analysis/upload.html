@@ -4,27 +4,39 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container py-5">
 
     <div class="card p-5">
 
-        <h2 class="mb-4">
+        <h2 class="mb-3">
+
+            <i class="fas fa-file-pdf text-danger"></i>
+
             Upload PDF
+
         </h2>
 
-        <form>
+        <p class="text-secondary">
+
+            Upload a suspicious PDF for static malware analysis.
+
+        </p>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            {{ form.hidden_tag() }}
 
             <div class="mb-4">
 
-                <input
-                    class="form-control"
-                    type="file"
-                    accept=".pdf">
+                {{ form.pdf(class="form-control") }}
 
             </div>
 
             <button
-                class="btn btn-success">
+                class="btn btn-success btn-lg">
+
+                <i class="fas fa-search"></i>
 
                 Analyze PDF
 

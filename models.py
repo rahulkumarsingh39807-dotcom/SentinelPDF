@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -15,13 +16,39 @@ class User(UserMixin, db.Model):
 
     password_hash = db.Column(db.String(255), nullable=False)
 
-    created_at = db.Column(
-        db.DateTime,
-        server_default=db.func.now()
-    )
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    analyses = db.relationship("Analysis", backref="user", lazy=True)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+
+class Analysis(db.Model):
+
+    __tablename__ = "analysis"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    filename = db.Column(db.String(255), nullable=False)
+
+    md5 = db.Column(db.String(32))
+
+    sha1 = db.Column(db.String(40))
+
+    sha256 = db.Column(db.String(64))
+
+    risk = db.Column(db.String(30))
+
+    score = db.Column(db.Integer)
+
+    uploaded_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey("users.id"),
+        nullable=False
+    )

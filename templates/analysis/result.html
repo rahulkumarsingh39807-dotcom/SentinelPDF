@@ -1,0 +1,53 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Analysis Result{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="card p-5">
+
+        <h2 class="mb-4">
+            Analysis Result
+        </h2>
+
+        <table class="table table-dark">
+
+            <tr>
+                <th>Filename</th>
+                <td>{{ report.filename }}</td>
+            </tr>
+
+            <tr>
+                <th>MD5</th>
+                <td>{{ report.md5 }}</td>
+            </tr>
+
+            <tr>
+                <th>SHA1</th>
+                <td>{{ report.sha1 }}</td>
+            </tr>
+
+            <tr>
+                <th>SHA256</th>
+                <td>{{ report.sha256 }}</td>
+            </tr>
+
+            <tr>
+                <th>Risk</th>
+                <td>{{ report.risk }}</td>
+            </tr>
+
+            <tr>
+                <th>Score</th>
+                <td>{{ report.score }}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

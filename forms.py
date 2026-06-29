@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, Length, EqualTo
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 
 class RegisterForm(FlaskForm):
 
@@ -57,3 +58,16 @@ class LoginForm(FlaskForm):
     )
 
     submit = SubmitField("Login")
+
+
+class UploadPDFForm(FlaskForm):
+
+    pdf = FileField(
+        "PDF File",
+        validators=[
+            FileRequired(),
+            FileAllowed(["pdf"], "Only PDF files are allowed!")
+        ]
+    )
+
+    submit = SubmitField("Analyze PDF")
