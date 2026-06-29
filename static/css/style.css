@@ -1,0 +1,287 @@
+/* ==========================================
+   SentinelPDF - Global Theme
+========================================== */
+
+:root{
+    --bg:#0B1120;
+    --sidebar:#111827;
+    --card:#1F2937;
+    --primary:#00E676;
+    --primary-dark:#00C853;
+    --danger:#EF4444;
+    --warning:#F59E0B;
+    --text:#F8FAFC;
+    --muted:#94A3B8;
+    --border:#334155;
+    --shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+
+.navbar{
+
+    height:70px;
+    background:var(--sidebar);
+    border-bottom:1px solid var(--border);
+
+}
+
+.navbar-brand{
+
+    font-weight:700;
+    font-size:24px;
+
+}
+
+.navbar-brand i{
+
+    margin-right:8px;
+
+}
+
+/* ===============================
+   MAIN LAYOUT
+================================ */
+
+.wrapper{
+
+    display:flex;
+    min-height:calc(100vh - 70px);
+
+}
+
+/* ===============================
+   SIDEBAR
+================================ */
+
+#sidebar{
+
+    width:260px;
+    background:var(--sidebar);
+    transition:.35s;
+    border-right:1px solid var(--border);
+
+}
+
+.logo{
+
+    padding:25px;
+
+    text-align:center;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.logo h4{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+#sidebar ul{
+
+    list-style:none;
+
+    padding:20px 0;
+
+}
+
+#sidebar ul li{
+
+    margin:10px 15px;
+
+}
+
+#sidebar ul li a{
+
+    display:block;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+    font-weight:500;
+
+}
+
+#sidebar ul li a i{
+
+    width:30px;
+
+}
+
+#sidebar ul li a:hover{
+
+    background:var(--primary);
+
+    color:#000;
+
+    transform:translateX(8px);
+
+}
+
+/* ===============================
+   CONTENT
+================================ */
+
+#content{
+
+    flex:1;
+
+    padding:30px;
+
+}
+
+/* ===============================
+   CARDS
+================================ */
+
+.card{
+
+    background:var(--card);
+
+    border:none;
+
+    border-radius:18px;
+
+    color:white;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,230,118,.15);
+
+}
+
+.card h2{
+
+    font-weight:700;
+
+    margin-top:12px;
+
+}
+
+.card h5{
+
+    color:var(--muted);
+
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.btn-success{
+
+    background:var(--primary);
+
+    border:none;
+
+    color:black;
+
+    font-weight:600;
+
+}
+
+.btn-success:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/* ===============================
+   TABLES
+================================ */
+
+.table{
+
+    color:white;
+
+}
+
+.table-dark{
+
+    background:var(--card);
+
+}
+
+/* ===============================
+   FORMS
+================================ */
+
+.form-control{
+
+    background:#0F172A;
+
+    border:1px solid var(--border);
+
+    color:white;
+
+}
+
+.form-control:focus{
+
+    background:#0F172A;
+
+    color:white;
+
+    border-color:var(--primary);
+
+    box-shadow:none;
+
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer{
+
+    background:var(--sidebar);
+
+    color:var(--muted);
+
+    text-align:center;
+
+    padding:15px;
+
+    border-top:1px solid var(--border);
+
+}

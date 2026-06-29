@@ -1,0 +1,57 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">Dashboard</h2>
+
+    <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card p-4">
+                <h5>Total Files</h5>
+                <h2>0</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card p-4">
+                <h5>Critical</h5>
+                <h2 class="text-danger">0</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card p-4">
+                <h5>High Risk</h5>
+                <h2 class="text-warning">0</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card p-4">
+                <h5>Safe Files</h5>
+                <h2 class="text-success">0</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card mt-4 p-5">
+
+        <h3>Welcome to SentinelPDF</h3>
+
+        <p class="text-secondary">
+
+            Analyze suspicious PDF files safely using static malware analysis.
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
