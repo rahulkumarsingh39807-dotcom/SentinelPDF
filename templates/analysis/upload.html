@@ -1,0 +1,39 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Upload PDF{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card p-5">
+
+        <h2 class="mb-4">
+            Upload PDF
+        </h2>
+
+        <form>
+
+            <div class="mb-4">
+
+                <input
+                    class="form-control"
+                    type="file"
+                    accept=".pdf">
+
+            </div>
+
+            <button
+                class="btn btn-success">
+
+                Analyze PDF
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
