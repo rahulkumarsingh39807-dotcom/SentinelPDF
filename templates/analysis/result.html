@@ -1,50 +1,34 @@
 {% extends "layouts/base.html" %}
 
-{% block title %}Analysis Result{% endblock %}
+{% block title %}Analysis Report{% endblock %}
 
 {% block content %}
 
-<div class="container py-5">
+<div class="container-fluid py-4">
 
-    <div class="card p-5">
+    <div class="row">
 
-        <h2 class="mb-4">
-            Analysis Result
-        </h2>
+        <div class="col-lg-8">
 
-        <table class="table table-dark">
+            {% include "components/report/file_info.html" %}
 
-            <tr>
-                <th>Filename</th>
-                <td>{{ report.filename }}</td>
-            </tr>
+            {% include "components/report/hashes.html" %}
 
-            <tr>
-                <th>MD5</th>
-                <td>{{ report.md5 }}</td>
-            </tr>
+            {% include "components/report/metadata.html" %}
 
-            <tr>
-                <th>SHA1</th>
-                <td>{{ report.sha1 }}</td>
-            </tr>
+            {% include "components/report/indicators.html" %}
 
-            <tr>
-                <th>SHA256</th>
-                <td>{{ report.sha256 }}</td>
-            </tr>
+            {% include "components/report/iocs.html" %}
 
-            <tr>
-                <th>Risk</th>
-                <td>{{ report.risk }}</td>
-            </tr>
+        </div>
 
-            <tr>
-                <th>Score</th>
-                <td>{{ report.score }}</td>
-            </tr>
+        <div class="col-lg-4">
 
-        </table>
+            {% include "components/report/risk.html" %}
+
+            {% include "components/report/timeline.html" %}
+
+        </div>
 
     </div>
 

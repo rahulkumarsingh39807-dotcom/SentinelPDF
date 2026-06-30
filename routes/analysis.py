@@ -4,6 +4,16 @@ from flask_login import login_required, current_user
 
 from werkzeug.utils import secure_filename
 
+from modules.analyzer import analyze_pdf
+from modules.hashes import calculate_hashes
+from modules.metadata import extract_metadata
+from modules.keywords import scan_keywords
+from modules.javascript import detect_javascript
+from modules.ioc import extract_iocs
+from modules.risk import calculate_risk
+
+import json
+
 import os
 
 from forms import UploadPDFForm
@@ -33,16 +43,35 @@ def upload():
 
         hashes = calculate_hashes(upload_path)
 
+        pdf_metadata = extract_metadata(upload_path)
+
+        keywords = scan_keywords(upload_path)
+
+        javascript = detect_javascript(upload_path)
+
+        iocs = extract_iocs(upload_path)
+
+        result = analyze_pdf(upload_path)
+
+        risk, score = calculate_risk(
+            javascript,
+            keywords,
+            iocs
+        )
+
         report = Analysis(
             filename=filename,
             md5=hashes["md5"],
             sha1=hashes["sha1"],
             sha256=hashes["sha256"],
-            risk="Unknown",
-            score=0,
+            pdf_metadata=json.dumps(pdf_metadata),
+            keywords=json.dumps(keywords),
+            javascript=javascript,
+            iocs=json.dumps(iocs),
+            risk=risk,
+            score=score,
             user_id=current_user.id
         )
-
         db.session.add(report)
         db.session.commit()
 

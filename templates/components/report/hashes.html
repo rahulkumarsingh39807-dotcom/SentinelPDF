@@ -1,0 +1,93 @@
+<div class="card report-card mb-4">
+
+    <div class="card-header">
+        <h5>
+            <i class="fas fa-fingerprint text-primary"></i>
+            File Hashes
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        <div class="hash-item">
+
+            <label>MD5</label>
+
+            <div class="input-group">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="md5"
+                    value="{{ report.md5 }}"
+                    readonly>
+
+                <button
+                    class="btn btn-outline-success"
+                    onclick="copyHash('md5')">
+
+                    <i class="fas fa-copy"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="hash-item">
+
+            <label>SHA1</label>
+
+            <div class="input-group">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="sha1"
+                    value="{{ report.sha1 }}"
+                    readonly>
+
+                <button
+                    class="btn btn-outline-success"
+                    onclick="copyHash('sha1')">
+
+                    <i class="fas fa-copy"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="hash-item">
+
+            <label>SHA256</label>
+
+            <div class="input-group">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="sha256"
+                    value="{{ report.sha256 }}"
+                    readonly>
+
+                <button
+                    class="btn btn-outline-success"
+                    onclick="copyHash('sha256')">
+
+                    <i class="fas fa-copy"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

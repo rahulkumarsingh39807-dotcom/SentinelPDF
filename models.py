@@ -41,9 +41,21 @@ class Analysis(db.Model):
 
     sha256 = db.Column(db.String(64))
 
+    pdf_metadata = db.Column(db.Text)
+
+    keywords = db.Column(db.Text)
+
+    javascript = db.Column(db.Boolean)
+
+    iocs = db.Column(db.Text)
+
     risk = db.Column(db.String(30))
 
     score = db.Column(db.Integer)
+
+    structure = db.Column(db.Text)
+
+    embedded = db.Column(db.Text)
 
     uploaded_at = db.Column(db.DateTime, default=datetime.utcnow)
 

@@ -24,3 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+function copyHash(id) {
+
+    const input = document.getElementById(id);
+
+    navigator.clipboard.writeText(input.value);
+
+    alert("Copied!");
+}

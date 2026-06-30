@@ -1,0 +1,63 @@
+{% set score = report.score if report.score is not none else 0 %}
+
+{% if score < 30 %}
+    {% set color = "bg-success" %}
+{% elif score < 60 %}
+    {% set color = "bg-warning" %}
+{% else %}
+    {% set color = "bg-danger" %}
+{% endif %}
+
+<div class="card report-card shadow-lg border-0 mb-4">
+
+    <div class="card-header bg-dark text-white">
+
+        <h5 class="mb-0">
+
+            <i class="fas fa-radiation text-danger"></i>
+
+            Risk Score
+
+        </h5>
+
+    </div>
+
+    <div class="card-body text-center">
+
+        <h1 class="display-2 fw-bold">
+
+            {{ score }}
+
+        </h1>
+
+        <p class="text-muted">
+
+            /100
+
+        </p>
+
+        <div class="progress mb-4" style="height:25px;">
+
+            <div
+                class="progress-bar {{ color }}"
+                role="progressbar"
+                aria-valuenow="{{ score }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: {{ score }}%;">
+
+                {{ score }}%
+
+            </div>
+
+        </div>
+
+        <h4 class="fw-bold">
+
+            {{ report.risk }}
+
+        </h4>
+
+    </div>
+
+</div>
